@@ -36,21 +36,36 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget fiturItem(IconData icon, String title) {
+  Widget fiturItem(IconData icon, String title, {bool isNew = false}) {
     return Column(
       children: [
-        Container(
-          padding: EdgeInsets.all(10),
-          decoration: BoxDecoration(
-            color: Colors.blue[600],
-            borderRadius: BorderRadius.circular(15),
-          ),
-          child: Icon(icon, color: Colors.white, size: 20),
+        Stack(
+          clipBehavior: Clip.none,
+          children: [
+            Container(
+              padding: EdgeInsets.all(14),
+              decoration: BoxDecoration(
+                color: Color(0xFFE7F0F8),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Icon(
+                icon,
+                color: Colors.blue[600],
+                size: 26,
+              ),
+            ),
+          ],
         ),
+
         SizedBox(height: 6),
+
         Text(
           title,
-          style: TextStyle(color: Colors.black, fontSize: 11),
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 11,
+            color: Colors.black87,
+          ),
         ),
       ],
     );
@@ -67,7 +82,7 @@ class HomePage extends StatelessWidget {
             children: [
 
               Container(
-                padding: EdgeInsets.only(top: 20, left: 20, right: 20),
+                padding: EdgeInsets.only(top: 40, left: 20, right: 20),
                 height: 130,
                 decoration: BoxDecoration(
                   color: Colors.blue,
@@ -198,22 +213,20 @@ class HomePage extends StatelessWidget {
           SizedBox(height: 190),
 
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 7),
+            padding: EdgeInsets.symmetric(horizontal: 10),
             child: GridView.count(
-              crossAxisCount: 4,
+              crossAxisCount: 5,
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
-              mainAxisSpacing: 15,
-              crossAxisSpacing: 15,
+              mainAxisSpacing: 20,
+              crossAxisSpacing: 10,
               children: [
-                fiturItem(Icons.account_balance_wallet, "Top Up"),
+                fiturItem(Icons.account_balance_wallet, "Top Up", isNew: true),
                 fiturItem(Icons.receipt_long, "Tagihan"),
-                fiturItem(Icons.swipe_vertical, "Setor & Tarik"),
-                fiturItem(Icons.qr_code_scanner, "QRIS"),
-                fiturItem(Icons.send, "Transfer"),
+                fiturItem(Icons.account_balance, "Setor &\nTarik Tunai"),
+                fiturItem(Icons.shopping_bag, "Lifestyle", isNew: true),
+                fiturItem(Icons.qr_code, "QRIS\nTransfer", isNew: true),
                 fiturItem(Icons.credit_card, "Debit Virtual"),
-                fiturItem(Icons.note, "Catatan"),
-                fiturItem(Icons.more_horiz, "DLL"),
               ],
             ),
           ),
