@@ -36,6 +36,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
+
   Widget fiturItem(IconData icon, String title, {bool isNew = false}) {
     return Column(
       children: [
@@ -43,17 +44,18 @@ class HomePage extends StatelessWidget {
           clipBehavior: Clip.none,
           children: [
             Container(
-              padding: EdgeInsets.all(14),
+              padding: EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: Color(0xFFE7F0F8),
-                borderRadius: BorderRadius.circular(20),
+                color: Color(0xFFEAF3FB),
+                borderRadius: BorderRadius.circular(16),
               ),
               child: Icon(
                 icon,
-                color: Colors.blue[600],
-                size: 26,
+                color: Colors.blue[700],
+                size: 15,
               ),
             ),
+
           ],
         ),
 
@@ -82,7 +84,7 @@ class HomePage extends StatelessWidget {
             children: [
 
               Container(
-                padding: EdgeInsets.only(top: 40, left: 20, right: 20),
+                padding: EdgeInsets.only(top: 0, left: 20, right: 20),
                 height: 130,
                 decoration: BoxDecoration(
                   color: Colors.blue,
@@ -168,14 +170,9 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
 
-                      SizedBox(height: 15),
+                      SizedBox(height: 2),
 
-                      Text(
-                        "Semua Rekeningmu",
-                        style: TextStyle(color: Colors.white),
-                      ),
-
-                      SizedBox(height: 12),
+                      SizedBox(height: 10),
 
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -187,7 +184,7 @@ class HomePage extends StatelessWidget {
                         ],
                       ),
 
-                      SizedBox(height: 14),
+                      SizedBox(height: 10),
 
                       Container(
                         padding: EdgeInsets.symmetric(horizontal: 15),
@@ -209,24 +206,26 @@ class HomePage extends StatelessWidget {
               ),
             ],
           ),
-
-          SizedBox(height: 190),
+          
+          SizedBox(height: 199),
 
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10),
+            padding: EdgeInsets.symmetric(horizontal: 20),
             child: GridView.count(
-              crossAxisCount: 5,
+              crossAxisCount: 4,
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
-              mainAxisSpacing: 20,
-              crossAxisSpacing: 10,
+              mainAxisSpacing: 9,
+              crossAxisSpacing: 9,
               children: [
                 fiturItem(Icons.account_balance_wallet, "Top Up", isNew: true),
                 fiturItem(Icons.receipt_long, "Tagihan"),
                 fiturItem(Icons.account_balance, "Setor &\nTarik Tunai"),
                 fiturItem(Icons.shopping_bag, "Lifestyle", isNew: true),
                 fiturItem(Icons.qr_code, "QRIS\nTransfer", isNew: true),
-                fiturItem(Icons.credit_card, "Debit Virtual"),
+                fiturItem(Icons.credit_card, "Debit\nVirtual"),
+                fiturItem(Icons.note, "Catatan\nKeuangan"),
+                fiturItem(Icons.savings, "Investasi"),
               ],
             ),
           ),
